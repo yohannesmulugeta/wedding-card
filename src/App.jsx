@@ -192,7 +192,7 @@ function App() {
 
       <section className="timeline-section section reveal">
         <p className="section-kicker">የዕለቱ መርሐ ግብር</p>
-        <h2>Our wedding day</h2>
+        <h2>A day centered on God</h2>
 
         <div className="timeline">
           {wedding.events.map((event, index) => (
@@ -210,7 +210,7 @@ function App() {
       <section className="venue section reveal">
         <div className="venue__card">
           <p className="section-kicker">ቦታው · THE VENUE</p>
-          <h2>Meet us in Addis</h2>
+          <h2>Reception at Sheraton Addis</h2>
           <p className="venue__name">{wedding.venue.name}</p>
           <p>{wedding.venue.address}</p>
           <p className="demo-note">{wedding.venue.note}</p>
