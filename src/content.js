@@ -7,15 +7,15 @@ export const wedding = {
   },
 
   date: {
-    iso: "",
-    gregorian: "DATE · MONTH · YEAR",
-    ethiopian: "የሠርግ ቀን በቅርቡ ይጨመራል",
+    iso: "2026-11-14T10:00:00+03:00",
+    gregorian: "14 · NOVEMBER · 2026",
+    ethiopian: "ህዳር 5 · 2019 ዓ.ም. · DEMO DATE",
   },
 
   hero: {
     eyebrow: "OUR WEDDING DAY · የሠርጋችን ቀን",
     welcome: "በደስታችን ቀን ከእኛ ጋር ይሁኑ",
-    image: "",
+    image: "/wedding-card/images/wedding-hero.png",
   },
 
   invitation: {
@@ -36,7 +36,7 @@ export const wedding = {
     body:
       "A place for the couple’s story — how they met, the memories that brought them closer, and the faith and love that led them to this day.",
     quote: "Home became every place we were together.",
-    image: "",
+    image: "/wedding-card/images/wedding-story.png",
   },
 
   events: [
@@ -98,13 +98,13 @@ export const wedding = {
   ],
 
   photos: {
-    hero: "",
-    story: "",
-    gallery: ["", "", ""],
+    hero: "/wedding-card/images/wedding-hero.png",
+    story: "/wedding-card/images/wedding-story.png",
+    gallery: ["/wedding-card/images/wedding-gallery-1.png", "/wedding-card/images/wedding-gallery-2.png", "/wedding-card/images/wedding-hero.png"],
   },
 
   rsvp: {
-    deadline: "RSVP deadline will be added",
+    deadline: "Demo RSVP deadline · 7 November 2026",
   },
 
   closing: {
