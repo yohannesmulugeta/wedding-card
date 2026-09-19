@@ -137,6 +137,13 @@ function App() {
         <p className="signature-amharic">{wedding.couple.amharic}</p>
       </section>
 
+      <section className="date-band reveal" aria-label="Wedding date">
+        <div className="date-band__ornament" aria-hidden="true" />
+        <p>የሠርግ ቀን</p>
+        <strong>{wedding.date.gregorian}</strong>
+        <span>{wedding.date.ethiopian}</span>
+      </section>
+
       <section className="countdown-section section reveal">
         <p className="section-kicker">ቀኑ እየቀረበ ነው</p>
         <h2>Until we say “I do”</h2>
@@ -161,9 +168,31 @@ function App() {
         </div>
       </section>
 
+      <section className="culture section reveal">
+        <div className="culture__intro">
+          <p className="section-kicker">{wedding.culture.headingAm}</p>
+          <h2>{wedding.culture.heading}</h2>
+          <p className="section-copy">{wedding.culture.intro}</p>
+        </div>
+
+        <div className="culture__moments">
+          {wedding.culture.moments.map((moment, index) => (
+            <article className="culture-card" key={moment.title}>
+              <div className="culture-card__number">0{index + 1}</div>
+              <div className="culture-card__symbol" aria-hidden="true">
+                {index === 0 ? "✝" : index === 1 ? "☕" : "✦"}
+              </div>
+              <p className="culture-card__amharic">{moment.titleAm}</p>
+              <h3>{moment.title}</h3>
+              <p>{moment.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="timeline-section section reveal">
         <p className="section-kicker">የዕለቱ መርሐ ግብር</p>
-        <h2>Wedding timeline</h2>
+        <h2>Our wedding day</h2>
 
         <div className="timeline">
           {wedding.events.map((event, index) => (
@@ -180,7 +209,7 @@ function App() {
 
       <section className="venue section reveal">
         <div className="venue__card">
-          <p className="section-kicker">ቦታው</p>
+          <p className="section-kicker">ቦታው · THE VENUE</p>
           <h2>Meet us in Addis</h2>
           <p className="venue__name">{wedding.venue.name}</p>
           <p>{wedding.venue.address}</p>
@@ -204,8 +233,8 @@ function App() {
       </section>
 
       <section className="gallery section reveal">
-        <p className="section-kicker">የእኛ ትዝታዎች</p>
-        <h2>A glimpse of us</h2>
+        <p className="section-kicker">የእኛ ትዝታዎች · OUR MOMENTS</p>
+        <h2>A glimpse of our journey</h2>
 
         <div className="gallery__grid">
           {wedding.photos.gallery.map((image, index) => (
@@ -225,7 +254,7 @@ function App() {
 
       <section className="details section reveal">
         <div>
-          <p className="section-kicker">GOOD TO KNOW</p>
+          <p className="section-kicker">ማወቅ ያለብዎት · GOOD TO KNOW</p>
           <h2>A few loving details</h2>
         </div>
 
@@ -241,7 +270,7 @@ function App() {
       </section>
 
       <section className="rsvp-section section reveal">
-        <p className="section-kicker">ከእኛ ጋር ይሆናሉ?</p>
+        <p className="section-kicker">ከእኛ ጋር ይሆናሉ? · KINDLY RSVP</p>
         <h2>Will you celebrate with us?</h2>
         <p>{wedding.rsvp.deadline}</p>
 
