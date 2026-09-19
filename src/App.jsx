@@ -203,21 +203,6 @@ function App() {
         </div>
       </section>
 
-      <section className="dress section reveal">
-        <p className="section-kicker">አለባበስ</p>
-        <h2>Dress with celebration in mind</h2>
-        <p className="section-copy">{wedding.dressCode.body}</p>
-
-        <div className="palette" aria-label="Suggested dress colors">
-          {wedding.dressCode.colors.map((item) => (
-            <div className="palette__color" key={item.label}>
-              <span style={{ backgroundColor: item.color }} />
-              <small>{item.label}</small>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="gallery section reveal">
         <p className="section-kicker">የእኛ ትዝታዎች</p>
         <h2>A glimpse of us</h2>
