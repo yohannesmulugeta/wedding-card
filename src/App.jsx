@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   CalendarDays,
@@ -41,7 +41,7 @@ function Countdown() {
   const [now, setNow] = useState(() => Date.now());
   const target = wedding.date.iso ? new Date(wedding.date.iso).getTime() : null;
 
-  useMemo(() => {
+  useEffect(() => {
     if (!target) return undefined;
     const id = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(id);
