@@ -31,12 +31,39 @@ export const wedding = {
   },
 
   story: {
-    heading: "Our story",
-    headingAm: "ታሪካችን",
+    heading: "Our journey",
+    headingAm: "የፍቅር ታሪካችን",
     body:
-      "A place for the couple’s story — how they met, the memories that brought them closer, and the faith and love that led them to this day.",
-    quote: "Home became every place we were together.",
+      "A place for the couple’s story — how friendship, faith, family and shared memories led them to this covenant and this joyful day.",
+    quote: "Two hearts, one faith, one beautiful journey.",
     image: "/wedding-card/images/wedding-story.png",
+  },
+
+  culture: {
+    heading: "Our culture, our joy",
+    headingAm: "ባህላችን ደስታችን",
+    intro:
+      "We celebrate not only a marriage, but also family, faith, hospitality and the traditions that shaped us.",
+    moments: [
+      {
+        title: "Family blessing",
+        titleAm: "የቤተሰብ በረከት",
+        body:
+          "A quiet moment for parents and elders to pray, bless and speak life over the new home.",
+      },
+      {
+        title: "Coffee ceremony",
+        titleAm: "የቡና ሥነ-ሥርዓት",
+        body:
+          "Buna, conversation and hospitality — a warm Ethiopian welcome shared with family and guests.",
+      },
+      {
+        title: "Traditional entrance",
+        titleAm: "ባህላዊ መግቢያ",
+        body:
+          "Music, ululation and a joyful entrance that celebrates heritage before the reception continues.",
+      },
+    ],
   },
 
   events: [
@@ -44,25 +71,25 @@ export const wedding = {
       time: "10:00 AM",
       title: "Holy Matrimony",
       titleAm: "የጋብቻ ሥነ-ሥርዓት",
-      description: "Vows, blessing and family photographs.",
+      description: "Vows, prayer, blessing and family photographs.",
     },
     {
       time: "12:30 PM",
-      title: "Family & friends",
-      titleAm: "የቤተሰብ እና ወዳጆች ጊዜ",
-      description: "Greetings, photographs and joyful moments together.",
+      title: "Family blessing & buna",
+      titleAm: "የቤተሰብ በረከት እና ቡና",
+      description: "Elders, family, coffee and a warm Ethiopian welcome.",
     },
     {
-      time: "2:00 PM",
+      time: "2:30 PM",
       title: "Reception",
       titleAm: "የእንግዳ አቀባበል",
-      description: "Food, Ethiopian hospitality and celebration.",
+      description: "Food, hospitality, music and celebration together.",
     },
     {
-      time: "5:00 PM",
-      title: "Music & celebration",
-      titleAm: "ሙዚቃ እና ደስታ",
-      description: "Dancing, laughter and a beautiful close to the day.",
+      time: "5:30 PM",
+      title: "Traditional celebration",
+      titleAm: "ባህላዊ ደስታ",
+      description: "Music, dancing, laughter and a joyful close to the day.",
     },
   ],
 
@@ -73,22 +100,11 @@ export const wedding = {
     mapUrl: "",
   },
 
-  dressCode: {
-    body:
-      "Elegant Ethiopian formal or classic evening attire. The final dress guidance can be customized for the couple.",
-    colors: [
-      { label: "Burgundy", color: "#65001f" },
-      { label: "Forest", color: "#243f32" },
-      { label: "Soft gold", color: "#c9a260" },
-      { label: "Warm sand", color: "#d8c7ae" },
-    ],
-  },
-
   details: [
     {
       icon: "✦",
       title: "Your presence",
-      body: "Your prayers and presence are already a meaningful gift to the couple.",
+      body: "Your prayers, blessing and presence are already a meaningful gift to the couple.",
     },
     {
       icon: "☎",
