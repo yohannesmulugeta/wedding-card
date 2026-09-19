@@ -101,7 +101,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 52%;
+  object-position: center 42%;
 }
 
 .hero__image--placeholder {
@@ -1155,5 +1155,198 @@ button {
     scroll-behavior: auto !important;
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+
+/* Ethiopian date ribbon */
+.date-band {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 7px;
+  padding: 32px 22px 34px;
+  overflow: hidden;
+  text-align: center;
+  color: var(--wine-deep);
+  background:
+    linear-gradient(90deg, rgba(201,162,96,.09), transparent 28%, transparent 72%, rgba(201,162,96,.09)),
+    var(--ivory);
+  border-block: 1px solid rgba(101,0,31,.12);
+}
+
+.date-band::before,
+.date-band::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  content: "";
+  background:
+    linear-gradient(135deg, transparent 25%, var(--wine) 25% 34%, transparent 34% 47%, var(--gold) 47% 56%, transparent 56% 69%, var(--forest) 69% 78%, transparent 78%) center / 28px 28px repeat-y;
+  opacity: .88;
+}
+
+.date-band::before { left: 0; }
+.date-band::after { right: 0; transform: scaleX(-1); }
+
+.date-band p {
+  margin: 0;
+  color: var(--wine-soft);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.date-band strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 8vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: .04em;
+}
+
+.date-band span {
+  color: #785a61;
+  font-size: .8rem;
+}
+
+/* Ethiopian cultural celebration */
+.culture {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(24px, calc((100% - 1180px) / 2));
+  overflow: hidden;
+  color: var(--ivory);
+  background:
+    radial-gradient(circle at 78% 15%, rgba(201,162,96,.11), transparent 22%),
+    radial-gradient(circle at 14% 85%, rgba(138,18,57,.18), transparent 25%),
+    var(--forest);
+}
+
+.culture::before,
+.culture::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34px;
+  content: "";
+  opacity: .9;
+  background:
+    linear-gradient(45deg, transparent 28%, var(--gold) 28% 36%, transparent 36% 48%, var(--wine-soft) 48% 58%, transparent 58% 70%, var(--gold) 70% 78%, transparent 78%) center / 34px 34px repeat-y;
+}
+
+.culture::before { left: 0; }
+.culture::after { right: 0; transform: scaleX(-1); }
+
+.culture__intro,
+.culture__moments {
+  position: relative;
+  z-index: 1;
+}
+
+.culture__intro {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.culture .section-kicker {
+  color: var(--gold-bright);
+}
+
+.culture h2 {
+  color: var(--ivory);
+}
+
+.culture .section-copy {
+  color: rgba(255,249,240,.72);
+}
+
+.culture__moments {
+  display: grid;
+  gap: 14px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.culture-card {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 25px 28px;
+  border: 1px solid rgba(230,201,142,.24);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.055), transparent 60%),
+    rgba(12,38,27,.54);
+}
+
+.culture-card::after {
+  position: absolute;
+  right: -34px;
+  bottom: -34px;
+  width: 112px;
+  aspect-ratio: 1;
+  content: "";
+  border: 1px solid rgba(230,201,142,.14);
+  transform: rotate(45deg);
+}
+
+.culture-card__number {
+  position: absolute;
+  top: 13px;
+  right: 18px;
+  color: rgba(230,201,142,.16);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.1rem;
+}
+
+.culture-card__symbol {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgba(230,201,142,.32);
+  border-radius: 50%;
+  color: var(--gold-bright);
+  font-size: 1.15rem;
+}
+
+.culture-card__amharic {
+  margin: 0 0 7px;
+  color: var(--gold-bright);
+  font-size: .82rem;
+}
+
+.culture-card h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.culture-card > p:last-child {
+  margin: 13px 0 0;
+  color: rgba(255,249,240,.68);
+  font-size: .85rem;
+  line-height: 1.72;
+}
+
+/* Wider Ethiopian textile rhythm on major sections */
+.timeline-section,
+.rsvp-section {
+  border-block: 1px solid rgba(230,201,142,.16);
+}
+
+.venue__card {
+  border-inline: 1px solid rgba(230,201,142,.28);
+}
+
+@media (min-width: 720px) {
+  .culture__moments {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .date-band {
+    padding-block: 39px 41px;
   }
 }
