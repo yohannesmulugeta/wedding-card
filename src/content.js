@@ -1,9 +1,9 @@
 export const wedding = {
   couple: {
-    bride: "BRIDE",
-    groom: "GROOM",
-    amharic: "ሙሽሪት እና ሙሽራ",
-    monogram: "B&G",
+    bride: "MENA",
+    groom: "ERMIYAS",
+    amharic: "ሜና እና ኤርሚያስ",
+    monogram: "M&E",
   },
 
   date: {
@@ -40,28 +40,28 @@ export const wedding = {
   },
 
   culture: {
-    heading: "Our culture, our joy",
-    headingAm: "ባህላችን ደስታችን",
+    heading: "Faith, family & gratitude",
+    headingAm: "እምነት · ቤተሰብ · ምስጋና",
     intro:
-      "We celebrate not only a marriage, but also family, faith, hospitality and the traditions that shaped us.",
+      "This day is first a testimony of God’s goodness. We celebrate His faithfulness, the prayers of our families and the covenant He has brought us into.",
     moments: [
       {
-        title: "Family blessing",
-        titleAm: "የቤተሰብ በረከት",
+        title: "God at the center",
+        titleAm: "እግዚአብሔር በመካከላችን",
         body:
-          "A quiet moment for parents and elders to pray, bless and speak life over the new home.",
+          "Our marriage begins with Christ at the center and with gratitude for the way God has led us.",
       },
       {
-        title: "Coffee ceremony",
-        titleAm: "የቡና ሥነ-ሥርዓት",
+        title: "Family & blessing",
+        titleAm: "ቤተሰብ እና በረከት",
         body:
-          "Buna, conversation and hospitality — a warm Ethiopian welcome shared with family and guests.",
+          "We honor the prayers, counsel and blessing of the families and spiritual leaders who have walked with us.",
       },
       {
-        title: "Traditional entrance",
-        titleAm: "ባህላዊ መግቢያ",
+        title: "A testimony of grace",
+        titleAm: "የጸጋ ምስክርነት",
         body:
-          "Music, ululation and a joyful entrance that celebrates heritage before the reception continues.",
+          "Our celebration is also a testimony: the Lord has helped us, sustained us and brought us to this joyful beginning.",
       },
     ],
   },
@@ -69,35 +69,40 @@ export const wedding = {
   events: [
     {
       time: "10:00 AM",
-      title: "Holy Matrimony",
-      titleAm: "የጋብቻ ሥነ-ሥርዓት",
-      description: "Vows, prayer, blessing and family photographs.",
+      title: "Worship & Thanksgiving",
+      titleAm: "አምልኮ እና ምስጋና",
+      description:
+        "We begin by worshipping God and thanking Him for His faithfulness and for bringing us to this day.",
     },
     {
-      time: "12:30 PM",
-      title: "Family blessing & buna",
-      titleAm: "የቤተሰብ በረከት እና ቡና",
-      description: "Elders, family, coffee and a warm Ethiopian welcome.",
+      time: "10:45 AM",
+      title: "The Word & Testimony",
+      titleAm: "ቃሉ እና ምስክርነት",
+      description:
+        "A short message from the Word of God, followed by testimony of the Lord’s goodness in our journey.",
     },
     {
-      time: "2:30 PM",
-      title: "Reception",
-      titleAm: "የእንግዳ አቀባበል",
-      description: "Food, hospitality, music and celebration together.",
+      time: "11:30 AM",
+      title: "Covenant, Prayer & Blessing",
+      titleAm: "ቃል ኪዳን · ጸሎት · በረከት",
+      description:
+        "Marriage vows, rings, covenant prayer and blessing over Mena and Ermiyas as they begin their home together.",
     },
     {
-      time: "5:30 PM",
-      title: "Traditional celebration",
-      titleAm: "ባህላዊ ደስታ",
-      description: "Music, dancing, laughter and a joyful close to the day.",
+      time: "2:00 PM",
+      title: "Fellowship & Reception",
+      titleAm: "ኅብረት እና የደስታ ጊዜ",
+      description:
+        "A joyful time of fellowship, meal, family greetings and celebration at Sheraton Addis.",
     },
   ],
 
   venue: {
-    name: "Wedding venue will be added",
-    address: "Addis Ababa, Ethiopia",
-    note: "Final church and reception details will be updated when confirmed.",
-    mapUrl: "",
+    name: "Sheraton Addis, a Luxury Collection Hotel",
+    address: "Taitu Street, Addis Ababa, Ethiopia",
+    note: "Reception venue · demo wedding information",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Sheraton+Addis+Taitu+Street+Addis+Ababa+Ethiopia",
   },
 
   details: [
@@ -124,8 +129,8 @@ export const wedding = {
   },
 
   closing: {
-    amharic: "በደስታ እንጠብቃችኋለን",
-    verse: "What God has joined together, let no one separate.",
-    reference: "Mark 10:9",
+    amharic: "እስከዚህ ያደረሰን እግዚአብሔር ይመስገን",
+    verse: "The Lord has done great things for us, and we are filled with joy.",
+    reference: "Psalm 126:3",
   },
 };
