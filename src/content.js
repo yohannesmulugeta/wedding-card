@@ -8,60 +8,59 @@ export const wedding = {
 
   date: {
     iso: "2026-11-14T10:00:00+03:00",
-    gregorian: "14 · NOVEMBER · 2026",
+    gregorian: "14 NOVEMBER 2026",
     ethiopian: "ህዳር 5 · 2019 ዓ.ም. · DEMO DATE",
   },
 
   hero: {
     eyebrow: "OUR WEDDING DAY · የሠርጋችን ቀን",
-    welcome: "በደስታችን ቀን ከእኛ ጋር ይሁኑ",
-    image: "/wedding-card/images/wedding-hero.png",
+    welcome: "TWO LIVES, ONE IN CHRIST",
   },
 
   invitation: {
-    heading: "With joyful hearts",
-    headingAm: "በደስታ የተሞላ ጥሪ",
+    heading: "A Special Invitation",
+    headingAm: "ልዩ ጥሪ",
     body:
-      "Together with our families, and with grateful hearts to God, we invite you to share in the joy of our wedding day as we begin our marriage covenant surrounded by the people we love.",
+      "With grateful hearts, we invite you to join us as we unite our lives before God, our families and our dearest friends. Your love, prayers and presence mean the world to us.",
   },
 
   scripture: {
-    text: "A cord of three strands is not quickly broken.",
-    reference: "Ecclesiastes 4:12",
+    text: "Therefore what God has joined together, let no one separate.",
+    reference: "Mark 10:9",
   },
 
   story: {
-    heading: "Our journey",
+    heading: "Our Journey",
     headingAm: "የፍቅር ታሪካችን",
     body:
-      "A place for the couple’s story — how friendship, faith, family and shared memories led them to this covenant and this joyful day.",
-    quote: "Two hearts, one faith, one beautiful journey.",
-    image: "/wedding-card/images/wedding-story.png",
+      "Different paths, one faithful God. What started as friendship grew into a love grounded in faith, prayer and God’s perfect timing. Now we say yes to a lifetime together.",
+    quote: "He has made everything beautiful in its time.",
+    reference: "Ecclesiastes 3:11",
   },
 
-  culture: {
-    heading: "Faith, family & gratitude",
+  faith: {
+    heading: "Faith, Family & Gratitude",
     headingAm: "እምነት · ቤተሰብ · ምስጋና",
     intro:
-      "This day is first a testimony of God’s goodness. We celebrate His faithfulness, the prayers of our families and the covenant He has brought us into.",
-    moments: [
+      "Our love is rooted in Christ, strengthened by family and surrounded by a community of prayer. We are deeply grateful for everyone who has shaped our journey and continues to stand with us.",
+    items: [
       {
-        title: "God at the center",
-        titleAm: "እግዚአብሔር በመካከላችን",
-        body:
-          "Our marriage begins with Christ at the center and with gratitude for the way God has led us.",
+        icon: "✝",
+        title: "Faith",
+        titleAm: "እምነት",
+        text: "God at the center of our covenant.",
       },
       {
-        title: "Family & blessing",
-        titleAm: "ቤተሰብ እና በረከት",
-        body:
-          "We honor the prayers, counsel and blessing of the families and spiritual leaders who have walked with us.",
+        icon: "◉",
+        title: "Family",
+        titleAm: "ቤተሰብ",
+        text: "Prayer, counsel, blessing and support.",
       },
       {
-        title: "A testimony of grace",
-        titleAm: "የጸጋ ምስክርነት",
-        body:
-          "Our celebration is also a testimony: the Lord has helped us, sustained us and brought us to this joyful beginning.",
+        icon: "♡",
+        title: "Gratitude",
+        titleAm: "ምስጋና",
+        text: "Giving glory to God for the journey.",
       },
     ],
   },
@@ -71,34 +70,30 @@ export const wedding = {
       time: "10:00 AM",
       title: "Worship & Thanksgiving",
       titleAm: "አምልኮ እና ምስጋና",
-      description:
-        "We begin by worshipping God and thanking Him for His faithfulness and for bringing us to this day.",
+      description: "A time to praise God and thank Him for His faithfulness.",
     },
     {
       time: "10:45 AM",
       title: "The Word & Testimony",
       titleAm: "ቃሉ እና ምስክርነት",
-      description:
-        "A short message from the Word of God, followed by testimony of the Lord’s goodness in our journey.",
+      description: "Scripture, encouragement and testimony of His goodness.",
     },
     {
       time: "11:30 AM",
       title: "Covenant, Prayer & Blessing",
       titleAm: "ቃል ኪዳን · ጸሎት · በረከት",
-      description:
-        "Marriage vows, rings, covenant prayer and blessing over Mena and Ermiyas as they begin their home together.",
+      description: "Vows, rings, covenant prayer and blessing before God.",
     },
     {
       time: "2:00 PM",
       title: "Fellowship & Reception",
       titleAm: "ኅብረት እና የደስታ ጊዜ",
-      description:
-        "A joyful time of fellowship, meal, family greetings and celebration at Sheraton Addis.",
+      description: "A shared meal, family greetings and joyful fellowship.",
     },
   ],
 
   venue: {
-    name: "Sheraton Addis, a Luxury Collection Hotel",
+    name: "Sheraton Addis",
     address: "Taitu Street, Addis Ababa, Ethiopia",
     note: "Reception venue · demo wedding information",
     mapUrl:
@@ -109,7 +104,12 @@ export const wedding = {
     {
       icon: "✦",
       title: "Your presence",
-      body: "Your prayers, blessing and presence are already a meaningful gift to the couple.",
+      body: "Your prayers, blessing and presence are already our greatest gift.",
+    },
+    {
+      icon: "✓",
+      title: "RSVP",
+      body: "Kindly respond by 7 November 2026.",
     },
     {
       icon: "☎",
@@ -121,7 +121,12 @@ export const wedding = {
   photos: {
     hero: "/wedding-card/images/wedding-hero.png",
     story: "/wedding-card/images/wedding-story.png",
-    gallery: ["/wedding-card/images/wedding-gallery-1.png", "/wedding-card/images/wedding-gallery-2.png", "/wedding-card/images/wedding-hero.png"],
+    gallery: [
+      "/wedding-card/images/wedding-gallery-1.png",
+      "/wedding-card/images/wedding-gallery-2.png",
+      "/wedding-card/images/wedding-story.png",
+      "/wedding-card/images/wedding-hero.png",
+    ],
   },
 
   rsvp: {
@@ -132,5 +137,6 @@ export const wedding = {
     amharic: "እስከዚህ ያደረሰን እግዚአብሔር ይመስገን",
     verse: "The Lord has done great things for us, and we are filled with joy.",
     reference: "Psalm 126:3",
+    glory: "To God be the glory. Now and always.",
   },
 };
