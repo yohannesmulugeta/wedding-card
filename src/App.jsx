@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { wedding } from "./content";
 import RsvpModal from "./RsvpModal";
+import TibebDivider from "./components/TibebDivider";
+import SectionHeading from "./components/SectionHeading";
 
 function Countdown() {
   const [now, setNow] = useState(Date.now());
@@ -15,27 +17,29 @@ function Countdown() {
   const values = useMemo(() => {
     if (!target || Number.isNaN(target)) {
       return [
-        ["DAYS", "--"],
-        ["HOURS", "--"],
-        ["MINUTES", "--"],
-        ["SECONDS", "--"],
+        ["Days", "--"],
+        ["Hours", "--"],
+        ["Minutes", "--"],
+        ["Seconds", "--"],
       ];
     }
 
     const remaining = Math.max(0, target - now);
     return [
-      ["DAYS", Math.floor(remaining / 86400000)],
-      ["HOURS", Math.floor((remaining / 3600000) % 24)],
-      ["MINUTES", Math.floor((remaining / 60000) % 60)],
-      ["SECONDS", Math.floor((remaining / 1000) % 60)],
+      ["Days", Math.floor(remaining / 86400000)],
+      ["Hours", Math.floor((remaining / 3600000) % 24)],
+      ["Minutes", Math.floor((remaining / 60000) % 60)],
+      ["Seconds", Math.floor((remaining / 1000) % 60)],
     ];
   }, [now, target]);
 
   return (
-    <div className="countdown">
+    <div className="countdown-grid" aria-label="Wedding countdown">
       {values.map(([label, value]) => (
-        <div className="countdown__item" key={label}>
-          <strong>{typeof value === "number" ? String(value).padStart(2, "0") : value}</strong>
+        <div className="countdown-grid__item" key={label}>
+          <strong>
+            {typeof value === "number" ? String(value).padStart(2, "0") : value}
+          </strong>
           <span>{label}</span>
         </div>
       ))}
@@ -50,9 +54,9 @@ function Photo({ src, alt, className = "" }) {
 
   return (
     <div className={"image-placeholder " + className} role="img" aria-label={alt}>
-      <div className="placeholder-cross">✦</div>
-      <span>COUPLE PHOTO</span>
-      <small>Real image will be added here</small>
+      <span aria-hidden="true">✦</span>
+      <strong>PHOTO</strong>
+      <small>Image will be added here</small>
     </div>
   );
 }
@@ -62,10 +66,10 @@ function App() {
 
   useEffect(() => {
     document.documentElement.classList.add("motion-ready");
-    const elements = document.querySelectorAll(".reveal");
+    const nodes = document.querySelectorAll(".reveal");
 
     if (!("IntersectionObserver" in window)) {
-      elements.forEach((element) => element.classList.add("is-visible"));
+      nodes.forEach((node) => node.classList.add("is-visible"));
       return undefined;
     }
 
@@ -81,171 +85,203 @@ function App() {
       { threshold: 0.12 },
     );
 
-    elements.forEach((element) => observer.observe(element));
+    nodes.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
   }, []);
 
   return (
     <main className="wedding-page">
-      <section className={"hero " + (!wedding.photos.hero ? "hero--fallback" : "")}>
-        {wedding.photos.hero ? (
-          <img
-            className="hero__image"
-            src={wedding.photos.hero}
-            alt="Wedding couple"
-          />
-        ) : (
-          <div className="hero__image hero__image--placeholder" aria-hidden="true">
-            <div className="hero-silhouette hero-silhouette--left" />
-            <div className="hero-silhouette hero-silhouette--right" />
-          </div>
-        )}
+      <section className="hero">
+        <img
+          className="hero__image"
+          src={wedding.photos.hero}
+          alt="Mena and Ermiyas"
+        />
+        <div className="hero__overlay" />
 
-        <div className="hero__shade" />
+        <div className="hero__topline">
+          <span className="hero__cross" aria-hidden="true">✝</span>
+          <span>{wedding.couple.monogram}</span>
+        </div>
 
         <div className="hero__content">
-          <p className="eyebrow">{wedding.hero.eyebrow}</p>
-          <p className="hero__amharic">{wedding.hero.welcome}</p>
+          <p className="hero__eyebrow">{wedding.hero.eyebrow}</p>
+          <p className="hero__faith-line">{wedding.hero.welcome}</p>
 
-          <h1 id="couple-names">
+          <h1>
             <span>{wedding.couple.bride}</span>
-            <span className="ampersand">&amp;</span>
+            <em>&amp;</em>
             <span>{wedding.couple.groom}</span>
           </h1>
 
-          <p className="hero__date">{wedding.date.gregorian}</p>
-          <p className="hero__ethiopian-date">{wedding.date.ethiopian}</p>
+          <div className="hero__date-block">
+            <strong>{wedding.date.gregorian}</strong>
+            <span>{wedding.date.ethiopian}</span>
+          </div>
 
-          <a className="scroll-cue" href="#invitation">
-            DISCOVER OUR DAY <span aria-hidden="true">↓</span>
+          <a className="hero__scroll" href="#invitation">
+            SCROLL TO EXPLORE
+            <span aria-hidden="true">↓</span>
           </a>
+        </div>
+
+        <div className="hero__divider">
+          <TibebDivider dark />
         </div>
       </section>
 
       <section className="invitation section reveal" id="invitation">
-        <div className="ornament" aria-hidden="true" />
-        <p className="section-kicker">{wedding.invitation.headingAm}</p>
-        <h2>{wedding.invitation.heading}</h2>
-        <p className="section-copy">{wedding.invitation.body}</p>
+        <div className="invitation__cross" aria-hidden="true">✝</div>
+        <SectionHeading
+          kicker={wedding.invitation.headingAm}
+          title={wedding.invitation.heading}
+          subtitle={wedding.invitation.body}
+        />
 
-        <div className="scripture">
-          <span className="scripture__cross">✝</span>
+        <div className="invitation__verse">
           <blockquote>“{wedding.scripture.text}”</blockquote>
-          <small>{wedding.scripture.reference}</small>
+          <span>{wedding.scripture.reference}</span>
         </div>
 
-        <p className="signature-amharic">{wedding.couple.amharic}</p>
+        <p className="invitation__signature">
+          {wedding.couple.bride} <em>&amp;</em> {wedding.couple.groom}
+        </p>
       </section>
 
-      <section className="date-band reveal" aria-label="Wedding date">
-        <div className="date-band__ornament" aria-hidden="true" />
-        <p>የሠርግ ቀን</p>
-        <strong>{wedding.date.gregorian}</strong>
-        <span>{wedding.date.ethiopian}</span>
+      <section className="big-day reveal">
+        <div className="big-day__inner">
+          <div className="big-day__date">
+            <p className="section-heading__kicker">THE BIG DAY · ታላቁ ቀን</p>
+            <strong>{wedding.date.gregorian}</strong>
+            <span>{wedding.date.ethiopian}</span>
+          </div>
+
+          <div className="big-day__countdown">
+            <p className="big-day__label">COUNTDOWN TO OUR WEDDING</p>
+            <Countdown />
+            <p className="big-day__note">God’s timing is always perfect.</p>
+          </div>
+        </div>
       </section>
 
-      <section className="countdown-section section reveal">
-        <p className="section-kicker">ቀኑ እየቀረበ ነው</p>
-        <h2>Until we say “I do”</h2>
-        <Countdown />
-      </section>
-
-      <section className="story section reveal">
-        <div className="story__image-wrap">
-          <Photo
-            src={wedding.photos.story}
-            alt="Couple story"
-            className="story__image"
+      <section className="journey section reveal">
+        <div className="journey__copy">
+          <SectionHeading
+            kicker={wedding.story.headingAm}
+            title={wedding.story.heading}
+            subtitle={wedding.story.body}
+            align="left"
           />
-          <span className="image-mark" aria-hidden="true">ፍቅር</span>
+          <blockquote className="journey__quote">
+            “{wedding.story.quote}”
+            <span>{wedding.story.reference}</span>
+          </blockquote>
         </div>
 
-        <div className="story__content">
-          <p className="section-kicker">{wedding.story.headingAm}</p>
-          <h2>{wedding.story.heading}</h2>
-          <p className="section-copy">{wedding.story.body}</p>
-          <p className="story__quote">“{wedding.story.quote}”</p>
-        </div>
-      </section>
-
-      <section className="culture section reveal">
-        <div className="culture__intro">
-          <p className="section-kicker">{wedding.culture.headingAm}</p>
-          <h2>{wedding.culture.heading}</h2>
-          <p className="section-copy">{wedding.culture.intro}</p>
-        </div>
-
-        <div className="culture__moments">
-          {wedding.culture.moments.map((moment, index) => (
-            <article className="culture-card" key={moment.title}>
-              <div className="culture-card__number">0{index + 1}</div>
-              <div className="culture-card__symbol" aria-hidden="true">
-                {index === 0 ? "✝" : index === 1 ? "☕" : "✦"}
-              </div>
-              <p className="culture-card__amharic">{moment.titleAm}</p>
-              <h3>{moment.title}</h3>
-              <p>{moment.body}</p>
-            </article>
-          ))}
+        <div className="journey__visual">
+          <div className="journey__frame">
+            <Photo
+              src={wedding.photos.story}
+              alt="Mena and Ermiyas together"
+              className="journey__image"
+            />
+          </div>
+          <span className="journey__mark" aria-hidden="true">ፍቅር</span>
         </div>
       </section>
 
-      <section className="timeline-section section reveal">
-        <p className="section-kicker">የዕለቱ መርሐ ግብር</p>
-        <h2>A day centered on God</h2>
+      <section className="faith reveal">
+        <TibebDivider dark />
+        <div className="faith__inner">
+          <SectionHeading
+            kicker={wedding.faith.headingAm}
+            title={wedding.faith.heading}
+            subtitle={wedding.faith.intro}
+            light
+          />
 
-        <div className="timeline">
+          <div className="faith__items">
+            {wedding.faith.items.map((item) => (
+              <article className="faith__item" key={item.title}>
+                <span className="faith__icon" aria-hidden="true">{item.icon}</span>
+                <strong>{item.title}</strong>
+                <small>{item.titleAm}</small>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+        <TibebDivider dark />
+      </section>
+
+      <section className="program section reveal">
+        <SectionHeading
+          kicker="የዕለቱ መርሐ ግብር · OUR WEDDING DAY"
+          title="A Day Centered on God"
+          subtitle="Worship, the Word, covenant prayer and joyful fellowship."
+        />
+
+        <div className="program__timeline">
           {wedding.events.map((event, index) => (
-            <article className="timeline__event" key={event.title}>
-              <div className="timeline__number">0{index + 1}</div>
-              <time>{event.time}</time>
-              <h3>{event.title}</h3>
-              <p className="timeline__amharic">{event.titleAm}</p>
-              <p>{event.description}</p>
+            <article className="program__item" key={event.title}>
+              <div className="program__rail">
+                <span>{index + 1}</span>
+              </div>
+              <div className="program__content">
+                <time>{event.time}</time>
+                <h3>{event.title}</h3>
+                <p className="program__amharic">{event.titleAm}</p>
+                <p>{event.description}</p>
+              </div>
             </article>
           ))}
         </div>
+
+        <p className="program__glory">All for His glory.</p>
       </section>
 
-      <section className="venue section reveal">
-        <div className="venue__card">
-          <p className="section-kicker">ቦታው · THE VENUE</p>
-          <h2>Reception at Sheraton Addis</h2>
-          <p className="venue__name">{wedding.venue.name}</p>
-          <p>{wedding.venue.address}</p>
-          <p className="demo-note">{wedding.venue.note}</p>
+      <section className="venue reveal">
+        <div className="venue__inner">
+          <div className="venue__visual" aria-hidden="true">
+            <span className="venue__monogram">S</span>
+            <span className="venue__city">ADDIS ABABA</span>
+          </div>
 
-          {wedding.venue.mapUrl ? (
+          <div className="venue__card">
+            <p className="section-heading__kicker">ቦታው · THE VENUE</p>
+            <h2>{wedding.venue.name}</h2>
+            <p className="venue__address">{wedding.venue.address}</p>
+            <p className="venue__note">{wedding.venue.note}</p>
+
             <a
-              className="button button--light"
+              className="button button--gold"
               href={wedding.venue.mapUrl}
               target="_blank"
               rel="noreferrer"
             >
-              OPEN MAP
+              VIEW ON MAP →
             </a>
-          ) : (
-            <button className="button button--light" type="button" disabled>
-              MAP WILL BE ADDED
-            </button>
-          )}
+          </div>
         </div>
       </section>
 
-      <section className="gallery section reveal">
-        <p className="section-kicker">የእኛ ትዝታዎች · OUR MOMENTS</p>
-        <h2>A glimpse of our journey</h2>
+      <section className="moments section reveal">
+        <SectionHeading
+          kicker="የማይረሱ ጊዜያት · OUR MOMENTS"
+          title="Moments That Matter"
+          subtitle="A few glimpses from a love rooted in faith."
+        />
 
-        <div className="gallery__grid">
+        <div className="moments__grid">
           {wedding.photos.gallery.map((image, index) => (
             <figure
-              className={"gallery__item gallery__item--" + (index + 1)}
-              key={index}
+              className={"moments__item moments__item--" + (index + 1)}
+              key={image + index}
             >
               <Photo
                 src={image}
-                alt={"Wedding gallery image " + (index + 1)}
-                className="gallery__image"
+                alt={"Mena and Ermiyas wedding moment " + (index + 1)}
+                className="moments__image"
               />
             </figure>
           ))}
@@ -253,46 +289,59 @@ function App() {
       </section>
 
       <section className="details section reveal">
-        <div>
-          <p className="section-kicker">ማወቅ ያለብዎት · GOOD TO KNOW</p>
-          <h2>A few loving details</h2>
-        </div>
+        <SectionHeading
+          kicker="ማወቅ ያለብዎት · IMPORTANT DETAILS"
+          title="A Few Loving Details"
+          align="left"
+        />
 
-        <div className="details__grid">
+        <div className="details__list">
           {wedding.details.map((detail) => (
-            <article key={detail.title}>
+            <article className="details__item" key={detail.title}>
               <span aria-hidden="true">{detail.icon}</span>
-              <h3>{detail.title}</h3>
-              <p>{detail.body}</p>
+              <div>
+                <h3>{detail.title}</h3>
+                <p>{detail.body}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="rsvp-section section reveal">
-        <p className="section-kicker">ከእኛ ጋር ይሆናሉ? · KINDLY RSVP</p>
-        <h2>Will you celebrate with us?</h2>
-        <p>{wedding.rsvp.deadline}</p>
-
-        <button
-          className="button"
-          type="button"
-          aria-haspopup="dialog"
-          aria-controls="rsvp-dialog"
-          onClick={() => setRsvpOpen(true)}
-        >
-          RSVP
-        </button>
+      <section className="rsvp reveal">
+        <TibebDivider dark compact />
+        <div className="rsvp__inner">
+          <p className="section-heading__kicker">ከእኛ ጋር ይሆናሉ? · KINDLY RSVP</p>
+          <h2>Will You Be Our Guest?</h2>
+          <p>
+            Your love, prayers and presence mean the world to us. Kindly let us
+            know if you’ll be joining us for this special day.
+          </p>
+          <button
+            className="button button--gold"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="rsvp-dialog"
+            onClick={() => setRsvpOpen(true)}
+          >
+            RSVP NOW →
+          </button>
+          <small>{wedding.rsvp.deadline}</small>
+        </div>
+        <TibebDivider dark compact />
       </section>
 
-      <footer className="closing">
-        <div className="ornament ornament--small" aria-hidden="true" />
-        <p>{wedding.closing.amharic}</p>
-        <h2>
-          {wedding.couple.bride} <span>&amp;</span> {wedding.couple.groom}
-        </h2>
+      <footer className="closing reveal">
+        <div className="closing__cross" aria-hidden="true">✝</div>
+        <p className="section-heading__kicker">A FINAL BLESSING · መጨረሻ በረከት</p>
         <blockquote>“{wedding.closing.verse}”</blockquote>
-        <small>{wedding.closing.reference}</small>
+        <span>{wedding.closing.reference}</span>
+        <p className="closing__glory">{wedding.closing.glory}</p>
+        <h2>
+          {wedding.couple.bride} <em>&amp;</em> {wedding.couple.groom}
+        </h2>
+        <p className="closing__amharic">{wedding.closing.amharic}</p>
+        <TibebDivider />
       </footer>
 
       <RsvpModal open={rsvpOpen} onClose={() => setRsvpOpen(false)} />
