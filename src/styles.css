@@ -96,7 +96,8 @@ img {
   color: var(--ivory);
 }
 
-.section-heading__kicker {
+.section-heading__kicker,
+.section-kicker {
   margin: 0 0 14px;
   color: var(--burgundy-soft);
   font-size: 0.68rem;
